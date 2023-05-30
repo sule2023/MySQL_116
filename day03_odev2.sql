@@ -119,3 +119,14 @@ set yazili_notu=(select grade
 from lise
 where veli_isim='Tuncay')
 where Ders_adi ='fizik';
+
+/*-------------------------------------------------------------------------
+11) Tum ogrencilerin gradelerini deneme_puani tablosundaki yazili_notu ile update edin. 
+--------------------------------------------------------------------------*/
+update lise
+set grade=( select yazili_notu
+from deneme_puani
+where deneme_puani.ogrenci_id =lise.id
+)
+
+
