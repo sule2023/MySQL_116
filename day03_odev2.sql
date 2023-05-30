@@ -64,26 +64,58 @@ insert into deneme_puani values
  select *from lise;
  select *from deneme_puani;
 /*-------------------------------------------------------------------------
-5) Ismi Resul Can olan ogrencinin notunu notlar tablosundaki 
+5) Ismi Resul Can olan ogrencinin grade ini deneme_puani tablosundaki 
 ogrenci id'si 129 olan yazili notu ile update edin. 
 --------------------------------------------------------------------------*/
-
+update lise
+set grade =(select yazili_notu
+from deneme_puani
+where ogrenci_id =129)
+where isim= 'Resul Can';
 /*-------------------------------------------------------------------------
 6) Ders adi fizik olan kayitlarin yazili notunu Oguz Karaca'nin grade'i
 ile update edin. 
 --------------------------------------------------------------------------*/
+update deneme_puani
+set yazili_notu=(select grade
+from lise
+where isim = 'Oguz Karaca')
+where ders_adi= 'fizik';
+
 /*-------------------------------------------------------------------------
 7) Ali Can'in grade'ini, 124 ogrenci_id'li yazili_notu ile guncelleyin.
 --------------------------------------------------------------------------*/
+update lise 
+set grade=(select yazili_notu
+from deneme_puani
+where ogrenci_id= 124)
+where isim = 'Ali Can';
+
 /*-------------------------------------------------------------------------
 8) Ders adi Kimya olan yazili notlarini Rumeysa Aydin'in 
 grade'i ile guncelleyin.
 --------------------------------------------------------------------------*/
+update deneme_puani
+set yazili_notu = (select grade
+from lise
+where isim ='Rumeysa Aydin')
+where ders_adi= 'Kimya';
+
 /*-------------------------------------------------------------------------
 9) Ders adi tarih olan yazili notlarini Resul Can'in 
 grade'i ile guncelleyin.
 --------------------------------------------------------------------------*/
+update deneme_puani 
+set yazili_notu=(select grade
+from lise
+where isim='Resul Can')
+where Ders_adi ='tarih';
 /*-------------------------------------------------------------------------
 10) Ders adi fizik olan yazili notlarini veli adi Tuncay olan 
 grade ile guncelleyin.
 --------------------------------------------------------------------------*/
+update deneme_puani 
+set yazili_notu=(select grade
+from lise
+where veli_isim='Tuncay')
+where Ders_adi ='fizik';
