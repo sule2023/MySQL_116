@@ -170,14 +170,21 @@ CREATE TABLE talebeler
 select * from talebeler;
 select * from dereceler;
 
+--- silme islemleri yaparken
+-- 1.asama
+    DELETE FROM talebeler
+    WHERE id>125;
+    DELETE FROM dereceler
+    WHERE talebe_id>125;
+    -- bu iki silmeyi yapmadan islem gerceklestrmezken yukarida en bastan on delete cade.. yazdgimiz icin silmeyi yapar 
+    DROP TABLE dereceler;
+    DROP TABLE talebeler;
+    -- tum tabloyu silme bu 
+    
+    -- simdi  teksilme islemi ile chir dakide silinir 
+    DELETE FROM talebeler
+    WHERE id>124;
 
-delete from tabeler
-where id >125;
-delete from dereceler
-where talebe_id>125; -- bu iki silmeyi yapmadan islem gerceklestrmezken yukarida en bastan on delete cade.. yazdgimiz icin silmeyi yapar 
-
-delete from tabeler
-where id >125;
 
 
 
