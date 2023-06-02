@@ -278,7 +278,7 @@ select calisanlar.personel_isim, bolumler.bolum_isim, calisanlar.maas
 from bolumler right join calisanlar
 ON bolumler.bolum_id = calisanlar.bolum_id
 WHERE bolum_isim IN ('SATIS','MUDURLUK') AND maas >2000
-order by bolum_isim desc,maas;
+order by bolum_isim, personel_isim;
 
 
 
